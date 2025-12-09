@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    // --- FILE LAYOUT (Essential for Building) ---
+    "rootDir": "./src", // 👈 UNCOMMENT: Where your TypeScript source files live
+    "outDir": "./dist", // 👈 UNCOMMENT: Where compiled JavaScript files go
+
+    // --- ENVIRONMENT SETTINGS (For Node.js ESM) ---
+    "module": "nodenext", // 👈 CORRECT: Modern Node.js ES Modules resolution
+    "target": "es2022", // 👈 ADJUSTED: Use a recent, stable target for Node.js
+    "lib": ["es2022"], // 👈 ADDED: The required library file types
+    "types": ["node"], // 👈 ADDED: Explicitly include Node.js types
+
+    // 👇 REMOVE: This is redundant/incorrect when specifying "types": ["node"]
+    // "types": [],
+
+    // --- OTHER OUTPUTS (Keep as is) ---
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // --- STRICTER TYPECHECKING OPTIONS (Keep as is) ---
+    "strict": true, // 👈 Already here, but good to highlight as a core strictness flag
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // --- STYLE OPTIONS (Optional, but highly recommended) ---
+    "noImplicitReturns": true, // 👈 UNCOMMENT: Checks functions that don't return a value
+    "noImplicitOverride": true, // 👈 UNCOMMENT: Checks for proper use of 'override' keyword
+    "noUnusedLocals": true, // 👈 UNCOMMENT: Checks for unused variables
+    "noUnusedParameters": true, // 👈 UNCOMMENT: Checks for unused function parameters
+    "noFallthroughCasesInSwitch": true, // 👈 UNCOMMENT: Enforces 'break' in switch statements
+
+    // --- REMOVED/ADJUSTED RECOMMENDED OPTIONS (Frontend-Specific) ---
+    // 👇 REMOVED: This is for frontend/React projects
+    // "jsx": "react-jsx",
+
+    // 👇 REMOVED: Often unnecessary complexity for a simple Node project
+    // "verbatimModuleSyntax": true,
+    // "isolatedModules": true,
+
+    // 👇 REMOVED: Good for frontends, but 'nodenext' generally handles this well
+    // "noUncheckedSideEffectImports": true,
+
+    // 👇 REMOVED: Unnecessary with explicit rootDir/outDir and module settings
+    // "moduleDetection": "force",
+
+    // --- STANDARD RECOMMENDED OPTIONS (Keep as is) ---
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "../../../ai-workflow/**/*.ts"]
+}

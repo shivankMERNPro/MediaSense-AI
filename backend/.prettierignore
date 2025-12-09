@@ -1,0 +1,13 @@
+# Dependencies
+/node_modules
+/coverage
+/build
+/dist
+/public
+
+# Logs
+*.log
+
+# Configuration files
+.env
+.env.local
