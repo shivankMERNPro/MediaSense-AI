@@ -1,0 +1,31 @@
+/* ===============================
+   App Layout Styles
+   =============================== */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Header (fixed top bar) */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+  background: transparent;
+}
+
+/* Footer (fixed bottom bar) */
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+  background: transparent;
+}

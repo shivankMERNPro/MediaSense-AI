@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   Global Resets
+   =============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(
+    135deg,
+    rgb(40, 0, 85),
+    rgb(100, 0, 150),
+    rgb(40, 40, 85)
+  );
+  color: var(--color-text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ===============================
+   CSS Variables (Breakpoints & Colors)
+   =============================== */
+:root {
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-desktop: 1200px;
+
+  --color-primary: #1d4ed8;
+  --color-secondary: #f97316;
+  --color-background: linear-gradient(135deg, #0a0f1c 0%, #101624 100%);
+  --color-text: #f3f4f6;
+}
+
+/* ===============================
+   Scrollbar Styling (Themed)
+   =============================== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+}
+
+/* Use theme colors for thumb */
+::-webkit-scrollbar-thumb {
+  background-color: rgb(40, 0, 85);
+  border-radius: 10px;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Hover state using stronger color blend */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(40, 0, 85);
+  border-radius: 10px;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ===============================
+   Container Utility
+   =============================== */
+/* Base container */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 56px;
+  padding-inline: 10px;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+ Responsive widths 
+ ================================ */
+/* Mobile  */
+@media (min-width: 300px) and (max-width: 768px) {
+  .container {
+    margin-bottom: 100px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/* Laptop */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .container {
+    max-width: 1150px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+}

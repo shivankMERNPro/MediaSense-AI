@@ -1,0 +1,259 @@
+.nf-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  background: linear-gradient(to right, #2d2f36, #121318);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  padding: 0 5%;
+  gap: 2rem;
+}
+
+.nf-left {
+  max-width: 40%;
+}
+
+.nf-code {
+  font-size: 7rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.nf-title {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  color: #e0e0e0;
+}
+
+.nf-subtitle {
+  font-size: 1rem;
+  color: #9e9e9e;
+  margin-bottom: 2rem;
+}
+
+.nf-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nf-btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+.nf-login {
+  background: #ff7b00;
+  color: #fff;
+}
+
+.nf-login:hover {
+  background: #e66900;
+}
+
+.nf-contact {
+  background: transparent;
+  border: 2px solid #ccc;
+  color: #ccc;
+}
+
+.nf-contact:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* Right side visuals */
+.nf-right {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Moon */
+.moon {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at 30% 30%, #dcdcdc, #b3b3b3);
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  box-shadow: inset -40px -40px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Astronaut */
+.astronaut {
+  position: absolute;
+  right: 80px;
+  top: 40%;
+  width: 120px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.helmet {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  border: 4px solid #ddd;
+}
+
+.helmet::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  background: #222;
+  border-radius: 50%;
+}
+
+.body {
+  width: 50px;
+  height: 70px;
+  background: #fff;
+  margin: 10px auto;
+  border-radius: 8px;
+}
+
+.arms,
+.legs {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -10px;
+}
+
+.arms div,
+.legs div {
+  width: 15px;
+  height: 40px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.legs {
+  margin-top: 5px;
+}
+
+.cable {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  border: 4px solid #fff;
+  border-color: #fff transparent transparent transparent;
+  border-radius: 50%;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ========================= */
+/* 🔹 RESPONSIVENESS 🔹 */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .nf-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .nf-left {
+    max-width: 100%;
+  }
+
+  .nf-code {
+    font-size: 5rem;
+  }
+
+  .nf-title {
+    font-size: 1.8rem;
+  }
+
+  .nf-subtitle {
+    font-size: 1rem;
+  }
+
+  .moon {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-top: 2rem;
+  }
+
+  .astronaut {
+    right: auto;
+    top: auto;
+    width: 100px;
+    position: absolute;
+  }
+
+  .cable {
+    width: 150px;
+    height: 150px;
+    right: -50px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 576px) {
+  .nf-code {
+    font-size: 3.5rem;
+  }
+
+  .nf-title {
+    font-size: 1.5rem;
+  }
+
+  .nf-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .moon {
+    width: 220px;
+    height: 220px;
+  }
+
+  .astronaut {
+    width: 80px;
+  }
+
+  .cable {
+    width: 120px;
+    height: 120px;
+    right: -30px;
+  }
+
+  .nf-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .nf-btn {
+    width: 100%;
+  }
+}
