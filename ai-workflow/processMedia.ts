@@ -137,21 +137,21 @@ export async function findSimilarMedia(
 
   // Normalize user embedding
   const queryVec = toNumArray(queryEmbedding);
-// SAFETY FIX: Ensure queryText is always a valid string
-const safeQueryText =
-  typeof queryText === "string"
-    ? queryText
-    : queryText?.text || queryText?.query || JSON.stringify(queryText) || "";
+  // SAFETY FIX: Ensure queryText is always a valid string
+  const safeQueryText =
+    typeof queryText === "string"
+      ? queryText
+      : queryText?.text || queryText?.query || JSON.stringify(queryText) || "";
 
-// Prepare keyword tokens
-const tokens = safeQueryText
-  .toLowerCase()
-  .split(/\s+/)
-  .filter(Boolean);
+  // Prepare keyword tokens
+  const tokens = safeQueryText
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
 
 
   const scored = allMedia
-    .map((item) => {
+    .map((item: any) => {
       const vec = toNumArray(item.embedding);
       let semanticScore = 0;
       let keywordScore = 0;
@@ -171,7 +171,7 @@ const tokens = safeQueryText
           .toLowerCase();
 
       let hits = 0;
-      tokens.forEach((t) => {
+      tokens.forEach((t: any) => {
         if (text.includes(t)) hits += 1;
       });
 
@@ -203,8 +203,8 @@ const tokens = safeQueryText
         finalScore,
       };
     })
-    .filter((x) => x.finalScore > 0.10) // LOW threshold (critical fix)
-    .sort((a, b) => b.finalScore - a.finalScore)
+    .filter((x: any) => x.finalScore > 0.10) // LOW threshold (critical fix)
+    .sort((a: any, b: any) => b.finalScore - a.finalScore)
     .slice(0, limit);
 
   return scored;
@@ -259,8 +259,8 @@ export async function generateDescription(
       });
 
       return response.text || "No description generated";
-    } 
-    
+    }
+
     if (fileType === "image") {
       const base64 = fs.readFileSync(filePath, {
         encoding: "base64",
@@ -281,12 +281,12 @@ export async function generateDescription(
 
       return response.text || "No description generated";
     }
-    
-    
+
+
     // --- Video Handling (Corrected) ---
-    if (fileType === "video") {      
+    if (fileType === "video") {
       const uploadedFile = await ai.files.upload({
-        file: filePath, 
+        file: filePath,
         config: { mimeType: "video/mp4" },
       });
 
@@ -303,7 +303,7 @@ export async function generateDescription(
 
       // 4. Clean up the uploaded file after use (Recommended for video)
       // await ai.files.delete({ name: uploadedFile.name! });
-      
+
       return response.text || "Failed to generated description";
     }
 
@@ -401,10 +401,10 @@ export async function processMediaWithAI(
 
 
     await Media.findByIdAndUpdate(mediaId, {
-      description:"Failed to generate description, Tags & Topics",
-      tags:["N/A"],
+      description: "Failed to generate description, Tags & Topics",
+      tags: ["N/A"],
       topics: ["N/A"],
-      embedding:[],
+      embedding: [],
       status: "error",
       processingError: err.message,
     });
